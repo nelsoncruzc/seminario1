@@ -1,0 +1,74 @@
+using System;
+using System.Collections.Generic;
+
+namespace Tarea_I_Listas
+{
+	class Program
+	{
+		//Lista definida como global para acceder desde cualquier parte de la clase.
+		public static List<string> Compra = new List<string>();
+		
+		static void Main(string[] args)
+		{
+			//Agregando elementos en la lista vacia
+			Compra.Add("Manzana");
+			Compra.Add("Arroz");
+			Compra.Add("Pollo");
+
+			imprimir(Compra);
+
+			Console.WriteLine("-------");
+
+			//Insertando elementos en la posicion que deseemos, en este caso en la primer posicion.
+			Compra.Insert(0, "Pera");
+			imprimir(Compra);
+
+			Console.WriteLine("--------");
+			//Insertaremos un elemento en la ultima posicion 
+			Compra.Insert(Compra.Count, "Chivo");
+			imprimir(Compra);
+
+			Console.WriteLine("--------");
+			//Insertar un elemento a continuacion de uno dado
+			int n = 3;
+			Compra.Insert(n += 1, "Aguacate");
+			imprimir(Compra);
+
+			Console.WriteLine("--------");
+			//Buscar un elemento de la lista
+			busqueda("Aguacate");
+			imprimir(Compra);
+
+			Console.WriteLine("--------");
+			//Eliminar un elemento de la lista dada la posicion
+			Compra.RemoveAt(0);
+			imprimir(Compra);
+
+			Console.WriteLine("--------");
+			//Eliminar un elemento dado
+			Compra.Remove("Chivo");
+			imprimir(Compra);
+		}
+
+		//Metodo creado para imprimir en pantalla 
+		public static void imprimir(List<String> Compra)
+		{
+			for (int i = 0; i < Compra.Count; i++)
+			{
+				Console.WriteLine(Compra[i]);
+			}
+		}
+		//Metodo creado para realizar busqueda en la lista
+		public static void busqueda(String Incognita)
+		{
+			for (int i = 0; i < Compra.Count; i++)
+			{
+				if (Compra[i] == Incognita)
+				{
+					Console.WriteLine("Este valor se encuentra en la posicion {0}, recuerde que se cuenta iniciando en 0", i);
+				}
+
+			}
+		}
+	}
+}
